@@ -99,7 +99,10 @@ public class ${entity} implements Serializable {
     <#if (logicDeleteFieldName!"") == field.name>
     @TableLogic
     </#if>
+    <#if field.keyFlag>
+    <#else>
     @TableField("${field.annotationColumnName}")
+    </#if>
     private ${field.propertyType} ${field.propertyName?substring(1,2)?lower_case}${field.propertyName?substring(2)};
 </#list>
 <#------------  END 字段循环遍历  ---------->
