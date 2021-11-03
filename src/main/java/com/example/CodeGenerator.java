@@ -119,12 +119,14 @@ public class CodeGenerator {
         TemplateConfig templateConfig = new TemplateConfig();
         // 指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
         // 此处自定义了实体对象和mapper.xml，因为公司规范要求表名以t_开头，字段名以f_开头，所以做了特殊处理
-        templateConfig.setController("templates/controller2.java");
-        templateConfig.setService("templates/service2.java");
-        templateConfig.setServiceImpl("templates/serviceImpl2.java");
-        templateConfig.setMapper("templates/mapper2.java");
-        templateConfig.setXml("templates/mapper2.xml");
-        templateConfig.setEntity("templates/entity2.java");
+
+        String versionPath = "templates/v2/";
+        templateConfig.setController(versionPath + "controller.java");
+        templateConfig.setService(versionPath + "service.java");
+        templateConfig.setServiceImpl(versionPath + "serviceImpl.java");
+        templateConfig.setMapper(versionPath + "mapper.java");
+        templateConfig.setXml(versionPath + "mapper.xml");
+        templateConfig.setEntity(versionPath + "entity.java");
         mpg.setTemplate(templateConfig);
     }
 
